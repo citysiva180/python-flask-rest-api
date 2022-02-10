@@ -10,11 +10,14 @@ api = Api(app)
 
 # creation of class routes
 class HelloWorld(Resource):
-    def get(self):
-        return{"data": "Hello World"}
+    def get(self, name):
+        return{"data": f"Hello {name}"}
+
+    # def post(self):
+    #     return{"data": "Post Request!"}
 
 
-api.add_resource(HelloWorld, "/helloworld")
+api.add_resource(HelloWorld, "/helloworld/<string:name>")
 
 
 # Check if the app is main, and start from there...
